@@ -1,0 +1,339 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	padding: 0.5% 0;
+}
+
+.nav body {
+	background-color: #D8BFD8;
+	background-image: url("graphic/bgpattern1.png");
+	background-repeat: repeat;
+	background-position: bottom;
+	background-attachment: fixed;
+	background-size: 30px;
+	color: black;
+	overflow: clip;
+	font-family: Georgia, Garamond, serif;
+}
+
+.topmenu {
+	width: 100%;
+}
+
+a {
+	color: #c188dd;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #acd2f8;
+	text-decoration: overline;
+}
+
+.navlink:hover {
+	cursor: default;
+	color: white;
+	background: #acd2f8;
+	text-decoration: overline;
+
+}
+
+.navlink {
+	z-index: 1;
+	padding: 7px;
+	margin: 0 5px;
+	color: #c188dd;
+	background: black;
+	text-decoration: none;
+	border: 2px dotted white;
+	border-radius: 17px;
+	display: inline-block;
+	font-family: Georgia, Garamond, serif;
+	font-size: 20px;
+}
+
+body {
+	background: rgba(255, 255, 255, 0.1);
+	color: black;
+}
+	
+h1 {
+	color: #87CEEB;
+}
+
+.updatetext {
+	color: #c188dd;
+	border: 2px dotted #c188dd;
+  	font-size: 1.5em;
+  	margin-top: 0.83em;
+  	margin-bottom: 0.83em;
+  	margin-left: 0;
+  	margin-right: 0;
+  	font-weight: bold;
+}
+
+.navbox {
+	display: none;
+	float: center;
+	border: 5px double #acd2f8;
+	border-radius: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 15px;
+	width: 90%;
+	height: 80%;
+	max-width: 750px;
+	max-height: 550px;
+	background: rgba(255, 255, 255, 0.7);
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.minibox {
+	position: relative;
+	top: 1%;
+	max-width: 800px;
+	margin: auto;
+	padding: 0 25px;
+	background: rgba(216, 191, 216, 0.2);
+}
+
+.updatebox {
+	border: 5px dashed white;
+	padding: 10px;
+}
+
+.gallery {
+	width: 150px;
+	height: 150px;	
+}
+
+#small_aurora {
+	background: url(art/fullsize/aurora.png) 0 0;
+	background-repeat: no-repeat;
+	width: 150px;
+	height: 150px;
+	background-size: 100%;	
+}
+
+#small_chic {
+	background: url(art/chic.png) 0 0;
+	background-repeat: no-repeat;
+	width: 150px;
+	height: 150px;
+	background-size: 100%;
+}
+
+#small_reflective {
+	background: url(art/reflective.jpg) 0 0;
+	background-repeat: no-repeat;
+	width: 150px;
+	height: 150px;
+	background-size: 100%;
+}
+
+#small_sleephorse {
+	background: url(art/sleephorse.jpg) 0 0;
+	background-repeat: no-repeat;
+	width: 150px;
+	height: 150px;
+	background-size: 150%;
+}
+
+#small_girlphone {
+	background: url(art/girlphone.jpg) 0 0;
+	background-repeat: no-repeat;
+	width: 150px;
+	height: 150px;
+	background-size: 100%;
+}
+
+#small_poodlegirl {
+	background: url(art/poodlegirl.png) 0 0;
+	background-repeat: no-repeat;
+	width: 150px;
+	height: 150px;
+	background-size: 100%;
+}
+
+#small_featherlashes {
+	background: url(art/cutesquare.jpg) 0 0;
+	background-repeat: no-repeat;
+	width: 150px;
+	height: 150px;
+	background-size: 100%;
+}
+
+#small_cutepunk {
+	background: url(art/cutepunk_still.png) 0 0;
+	background-repeat: no-repeat;
+	width: 150px;
+	height: 150px;
+	background-size: 100%;
+}
+
+#small_sunspeak {
+	background: url(art/sunspeak.png) 0 0;
+	background-repeat: no-repeat;
+	width: 150px;
+	height: 150px;
+	background-size: 100%;
+}
+
+#small_cuddles {
+	background: url(art/fullsize/cuddles.png) 0 0;
+	background-repeat: no-repeat;
+	width: 150px;
+	height: 150px;
+	background-size: 100%;
+}
+
+
+
+/* SPACING FOR GALLERY THUMBNAILS */
+
+* {
+  box-sizing: border-box;
+}
+
+.row > .column{
+  padding: 0 8px;
+  float: center;
+  max-width: 100%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Four columns side by side */
+.column {
+  float: left;
+  max-width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.column:hover {opacity: 0.7;}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+.minibox {
+	clear: both;
+  }
+.wraptext {
+	clear: both;
+}
+
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+.minibox {
+	clear: both;
+  }
+.wraptext {
+	clear: both;
+}
+
+}
+
+
+
+/* GALLERY */
+
+/* Position the image container (needed to position the left and right arrows) */
+#gallerybox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  display: none;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+}
+
+/* Hide the images by default */
+.myPics {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  max-width: 100%;
+}
+
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+
+
+/* The Close Button */
+.close {
+  z-index: 3;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+
+/*  CONTACT FORM  */
+
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #c188dd;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #acd2f8;
+}
+
+.contactbox {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+
+.error {color: #FF0000;}

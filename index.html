@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html class="nav">
+<head>
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<title>kitsiv's portfolio</title>
+
+<p align="center" class="topmenu"><span class="navlink" onclick="currentPage(1)">home</span> <span class="navlink" onclick="currentPage(2)">about</span> <span class="navlink" onclick="currentPage(3)">artwork</span> <span class="navlink" onclick="currentPage(4)">contact</span></p>
+
+
+
+
+<!-- ACTUAL PAGES -->
+<div class="navbox">
+	<div class="minibox">
+      <!-- CONTENT PAGE :: HOME -->
+
+<h1>updates</h1>
+<div class="updatebox">
+<span class="updatetext">October 2021</span>
+<br><br>
+
+
+New print is up!!<br><br>
+<a href="https://www.inprnt.com/gallery/kitsiv/where-shes-sleeping/" target="welldontleaveyet"><img src="art/sleephorse.jpg" style="max-width: 100%"></a><br><br>
+<center><img src="graphic/construction.png" width="200"></center>
+		</div>
+	</div>
+</div>
+
+
+<div class="navbox">
+	<div class="minibox">
+<h1>about :: kitsiv ::</h1>
+<h3>gamedev writer artist</h3>
+<img src="graphic/perssiteicon.png" style="max-width:240px;float:left;">
+
+<span class="wraptext">
+<a href="http://www.inprnt.com/profile/kitsiv" target="dontleaveme">print shop</a> :: <a href="http://kitsiv.itch.io" target="pleasedontleaveme">gamedev page</a> :: <a href="http://www.deviantart.com/kitsiv" target="reallythoughpleasejuststay">deviantart</a>
+<br><br>
+
+
+
+
+</span>
+
+	</div>
+</div>
+
+<!-- ART PAGE -->
+<div class="navbox">
+		<div class="minibox">
+			<h1>artwork</h1>
+
+
+<!-- Container for the image gallery -->
+<div id="gallerybox">
+	<span class="close" onclick="closeGallery()">&times;</span>
+  <!-- Full-width images with number text -->
+  <div class="myPics">
+      <img src="art/sunspeak.png" style="max-width:100%;" onclick="closeGallery()">
+  </div>
+
+  <div class="myPics">
+      <img src="art/reflective.jpg" style="max-width:100%" onclick="closeGallery()">
+  </div>
+
+  <div class="myPics">
+      <img src="art/girlphone.jpg" style="max-width:100%" onclick="closeGallery()">
+  </div>
+
+  <div class="myPics">
+      <img src="art/sleephorse.jpg" style="max-height:100%" onclick="closeGallery()">
+  </div>
+
+  <div class="myPics">
+      <img src="art/cutesquare.jpg" style="width:100%" onclick="closeGallery()">
+  </div>
+
+  <div class="myPics">
+      <img src="art/poodlegirl.png" style="width:100%" onclick="closeGallery()">
+  </div>
+
+  <div class="myPics">
+      <img src="art/chic.png" style="width:100%" onclick="closeGallery()">
+  </div>
+
+  <div class="myPics">
+      <img src="art/cutehorror_anim.gif" style="width:100%" onclick="closeGallery()">
+  </div>
+</div>
+
+	<!-- GALLERY THUMBNAILS -->
+<div class="row">
+	<div class="column">
+		<img id="small_sunspeak" src="placeholder.png" style="width:100%;height:100%;" onclick="openGallery();currentPic(1)">
+	</div>
+	<div class="column">
+		<img id="small_reflective" src="placeholder.png" style="width:100%;height:100%;" onclick="openGallery();currentPic(2)">
+	</div>
+	<div class="column">
+		<img id="small_girlphone" src="placeholder.png" style="width:100%;height:100%;" onclick="openGallery();currentPic(3)"> 	</div>
+	<div class="column">
+		<img id="small_sleephorse" src="placeholder.png" style="width:100%;height:100%;" onclick="openGallery();currentPic(4)">
+	</div>
+  </div>
+
+
+<div class="row">
+	<div class="column">
+		<img id="small_featherlashes" src="placeholder.png" style="width:100%;height:100%;" onclick="openGallery();currentPic(5)">
+	</div>
+	<div class="column">
+		<img id="small_poodlegirl" src="placeholder.png" style="width:100%;height:100%;" onclick="openGallery();currentPic(6)">
+	</div>
+	<div class="column">
+		<img id="small_chic" src="placeholder.png" style="width:100%;height:100%;" onclick="openGallery();currentPic(7)"> 	</div>
+	<div class="column">
+		<img id="small_cutepunk" src="placeholder.png" style="width:100%;height:100%;" onclick="openGallery();currentPic(8)">
+	</div>
+  </div>
+
+
+
+</div>
+</div>
+
+
+
+
+<!-- CONTACT FORM -->
+
+<div class="navbox">
+	<div class="minibox">
+      <center><img src="graphic/mail.png" style="max-width:100%;"></center>
+
+
+<?php
+// define variables and set to empty values
+$nameErr = $emailErr = $websiteErr = "";
+$name = $email = $comment = $website = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["name"])) {
+    $nameErr = "Name is required";
+  } else {
+    $name = test_input($_POST["name"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
+      $nameErr = "Only letters and white space allowed";
+    }
+  }
+  
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+    // check if e-mail address is well-formed
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $emailErr = "Invalid email format";
+    }
+  }
+    
+  if (empty($_POST["website"])) {
+    $website = "";
+  } else {
+    $website = test_input($_POST["website"]);
+    // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
+    if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
+      $websiteErr = "Invalid URL";
+    }
+  }
+
+  if (empty($_POST["comment"])) {
+    $comment = "";
+  } else {
+    $comment = test_input($_POST["comment"]);
+  }
+
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+<h1>Contact</h1>
+<p><span class="error">* required field</span></p>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+  Name: <input type="text" name="name" value="<?php echo $name;?>">
+  <span class="error">* <?php echo $nameErr;?></span>
+  <br><br>
+  E-mail: <input type="text" name="email" value="<?php echo $email;?>">
+  <span class="error">* <?php echo $emailErr;?></span>
+  <br><br>
+  Comment: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
+  <br><br>
+  <input type="submit" name="submit" value="Submit">  
+</form>
+
+
+
+
+
+	</div>
+</div>
+
+
+
+<!-- DEV LOG -->
+<div class="navbox">
+	<div class="minibox">
+<h1>devlog</h1>
+nothin here 
+	</div>
+</div>
+
+
+
+	</div>
+</div>
+
+<div class="navbox">
+	<div class="minibox">
+      <img src="placeholder.png" style="width:100%">
+	</div>
+</div>
+
+
+<script>
+var pageIndex = 1;
+showPage(pageIndex);
+
+
+// Navlink Menu
+function currentPage(n) {
+  showPage(pageIndex = n);
+}
+
+
+
+function showPage(n) {
+  var i;
+  var pages = document.getElementsByClassName("navbox");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > pages.length) {pageIndex = 1}
+  if (n < 1) {pageIndex = pages.length}
+  for (i = 0; i < pages.length; i++) {
+    pages[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  pages[pageIndex-1].style.display = "block";
+  dots[pageIndex-1].className += " active";
+  captionText.innerHTML = dots[pageIndex-1].alt;
+} 
+
+
+
+
+
+
+// Image gallery
+
+// Open the Gallery
+function openGallery() {
+  document.getElementById("gallerybox").style.display = "block";
+}
+
+// Close the Gallery
+function closeGallery() {
+  document.getElementById("gallerybox").style.display = "none";
+}
+
+
+
+var picIndex = 1;
+showPics(picIndex);
+
+// Thumbnail image controls
+function currentPic(g) {
+  showPics(picIndex = g);
+}
+
+function showPics(g) {
+  var a;
+  var pics = document.getElementsByClassName("myPics");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (g > pics.length) {picIndex = 1}
+  if (g < 1) {picIndex = pics.length}
+  for (a = 0; a < pics.length; a++) {
+    pics[a].style.display = "none";
+  }
+  for (a = 0; a < dots.length; a++) {
+    dots[a].className = dots[a].className.replace(" active", "");
+  }
+  pics[picIndex-1].style.display = "block";
+  dots[picIndex-1].className += " active";
+  captionText.innerHTML = dots[picIndex-1].alt;
+} 
+
+
+// When the user clicks image, close gallery
+window.onclick = function(event) {
+  if (event.target == myPics) {
+    modal.style.display = "none";
+  }
+
+}
+</script>
+
+
+</body>
+</html>
